@@ -1,8 +1,8 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
+import MainLayout from '../../layouts/MainLayout.astro';
 import { getCollection } from 'astro:content';
 
-const lang = "fr";
+const lang = "en";
 
 // 1. Fetch all projects inside the 'fr' folder
 const allProjects = await getCollection('projects', ({ id }) => {

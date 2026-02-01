@@ -1,0 +1,50 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+const { lang = "fr" } = Astro.props;
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio - L. Boeglin</title>
+    
+    <script is:inline>
+      const savedTheme = localStorage.getItem("theme") || "light";
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    </script>
+  </head>
+  
+  <body class="bg-base-100 text-base-content">
+    <div class="drawer lg:drawer-open">
+      <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+      
+      <aside class="drawer-side z-40">
+        <label for="my-drawer" class="drawer-overlay"></label>
+        <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content flex flex-col gap-2">
+          <li class="mb-4">
+             <div class="font-bold text-2xl">L. BOEGLIN</div>
+             <div class="text-xs opacity-70">BUT 3 Informatique</div>
+          </li>
+          <li><a href="#intro">Introduction</a></li>
+          <li><a href="#exp">Expériences</a></li>
+          <li><a href="#projects">Projets</a></li>
+        </ul>
+      </aside>
+
+      <div class="drawer-content flex flex-col">
+        
+        <Header lang={lang} />
+
+        <main class="p-8 md:p-12 max-w-5xl mx-auto w-full">
+          <slot />
+        </main>
+
+        <Footer lang={lang} />
+      </div>
+    </div>
+  </body>
+</html>
