@@ -25,7 +25,6 @@ To run this project on your local machine, ensure you have Node.js installed and
 ```bash
 git clone https://github.com/lboeglin/portfolio.git
 cd portfolio
-
 ```
 
 2. **Install dependencies**
