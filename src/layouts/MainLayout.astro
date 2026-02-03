@@ -21,13 +21,13 @@ const base = import.meta.env.BASE_URL;
   <body class="bg-base-100 text-base-content">
     <div class="drawer lg:drawer-open">
       <input id="my-drawer" type="checkbox" class="drawer-toggle" />
-      <Sidebar specialization="Software Engineering" />
+      <Sidebar specialization="Software Engineering" transition:persist="true" />
       <div class="drawer-content flex flex-col">
-        <Navbar />
+        <Navbar transition:persist="true" />
         <main class="p-8 md:p-12 max-w-5xl mx-auto w-full">
           <slot />
         </main>
-        <Footer />
+        <Footer transition:persist="true" />
       </div>
     </div>
   </body>
