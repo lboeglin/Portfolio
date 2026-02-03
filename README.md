@@ -2,7 +2,7 @@
 
 This repository contains the source code for my portfolio website. The project is designed to showcase my technical expertise, previous work, and contact information.
 
-**Live URL:** [https://lboeglin.github.io/portfolio/](https://lboeglin.github.io/portfolio/)
+**Live URL:** [https://lboeglin.github.io/Portfolio/](https://lboeglin.github.io/Portfolio/)
 
 ## Technical Stack
 
@@ -23,8 +23,8 @@ To run this project on your local machine, ensure you have Node.js installed and
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/lboeglin/portfolio.git
-cd portfolio
+git clone https://github.com/lboeglin/Portfolio.git
+cd Portfolio
 ```
 
 2. **Install dependencies**
@@ -39,7 +39,7 @@ npm install
 npm run dev
 ```
 
-The application will be accessible at `http://localhost:4321/portfolio`.
+The application will be accessible at `http://localhost:4321/Portfolio`.
 
 ## Build and Deployment
 
