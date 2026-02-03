@@ -1,53 +1,27 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { useTranslations } from '../i18n/utils';
+import { type Lang, defaultLang } from '@i18n/ui';
 
-type Lang = 'fr' | 'en';
-
-const { experiences, lang = 'fr' } = Astro.props as {
+const { experiences } = Astro.props as {
   experiences: CollectionEntry<'experiences'>[];
-  lang?: Lang;
 };
 
-// Translation labels
-const labels = {
-  fr: {
-    section: 'Expériences Professionnelles',
-    present: 'Présent',
-    repo: 'Dépôt de code',
-    report: 'Rapport de stage',
-    locale: 'fr-FR',
-  },
-  en: {
-    section: 'Professional Experiences',
-    present: 'Present',
-    repo: 'Code repository',
-    report: 'Internship report',
-    locale: 'en-US',
-  },
-} as const;
+const currentLang = (Astro.currentLocale || defaultLang) as Lang;
 
-const typeLabels = {
-  fr: {
-    Internship: 'Stage',
-    Apprenticeship: 'Alternance',
-  },
-  en: {
-    Internship: 'Internship',
-    Apprenticeship: 'Apprenticeship',
-  },
-} as const;
-
-const t = labels[lang];
+const t = useTranslations(currentLang);
 
 function formatDate(dateStr?: string) {
-  if (!dateStr) return t.present;
+  if (!dateStr) return t('experiences.present');
   const date = new Date(dateStr + '-01');
-  return new Intl.DateTimeFormat(t.locale, { month: 'short', year: 'numeric' }).format(date);
+  return new Intl.DateTimeFormat(currentLang, { month: 'short', year: 'numeric' }).format(date);
 }
 ---
 
 <section id="professional">
-  <h2 class="text-3xl font-bold mb-8 border-b pb-2">{t.section}</h2>
+  <h2 class="text-3xl font-bold mb-8 border-b pb-2">
+    {t('experiences.section')}
+  </h2>
 
   <ol class="relative border-l border-base-300 pl-6 space-y-12">
     {
@@ -72,7 +46,11 @@ function formatDate(dateStr?: string) {
 
             <div class="text-sm opacity-60">
               {formatDate(exp.data.startDate)} — {formatDate(exp.data.endDate)} ·{' '}
-              {typeLabels[lang][exp.data.type]}
+              {/* Dynamic Key Lookup:
+                  Constructs 'experiences.type.Internship' or 'experiences.type.Apprenticeship' 
+                  based on your data. The 'as any' casts it because TS can't predict strings perfectly here.
+              */}
+              {t(`experiences.type.${exp.data.type}` as any)}
             </div>
 
             {/* Render highlights if available, otherwise fallback to Markdown body */}
@@ -96,12 +74,12 @@ function formatDate(dateStr?: string) {
               <div class="text-sm opacity-70 flex gap-4 mt-2">
                 {exp.data.repo && (
                   <a href={exp.data.repo} target="_blank" rel="noopener">
-                    {t.repo}
+                    {t('experiences.repo')}
                   </a>
                 )}
                 {exp.data.report && (
                   <a href={exp.data.report} target="_blank">
-                    {t.report}
+                    {t('experiences.report')}
                   </a>
                 )}
               </div>

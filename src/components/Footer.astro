@@ -1,21 +1,12 @@
 ---
+import { useTranslations } from '../i18n/utils';
+import { type Lang, defaultLang } from '../i18n/ui';
+
 const today = new Date();
-const { lang = 'fr' } = Astro.props;
 
-const t = {
-  fr: {
-    role: 'Étudiant BUT 3 Informatique',
-    rights: 'Tous droits réservés',
-    contact: 'Me contacter',
-  },
-  en: {
-    role: "CS Student (Bachelor's Year 3)",
-    rights: 'All rights reserved',
-    contact: 'Contact me',
-  },
-};
+const currentLang = (Astro.currentLocale || defaultLang) as Lang;
 
-const text = lang === 'fr' ? t.fr : t.en;
+const t = useTranslations(currentLang);
 ---
 
 <footer
@@ -26,10 +17,10 @@ const text = lang === 'fr' ? t.fr : t.en;
     <p class="font-bold text-lg">
       <a href="mailto:lohan.boeglin@gmail.com" class="link link-hover"> lohan.boeglin@gmail.com </a>
       <br />
-      <span class="font-normal opacity-70 text-sm">{text.role}</span>
+      <span class="font-normal opacity-70 text-sm">{t('footer.role')}</span>
     </p>
     <p class="text-xs opacity-50">
-      Copyright © {today.getFullYear()} - {text.rights}
+      Copyright © {today.getFullYear()} - {t('footer.rights')}
     </p>
   </div>
 </footer>
