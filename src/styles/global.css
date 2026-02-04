@@ -6,6 +6,18 @@
     coffee --prefersdark;
 }
 
+/* 1. DEFINE ANIMATIONS GLOBALLY */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @layer components {
   .hover-expand {
     @apply relative z-10 inline-grid place-items-center overflow-visible p-2 cursor-pointer;
@@ -22,8 +34,30 @@
     @apply opacity-15;
     transform: scale(1);
   }
+
+  /* --- Badge Wrapper (Handles the entrance animation) --- */
+  .badge-wrapper {
+    @apply inline-block opacity-0;
+    animation: fadeInUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: calc(var(--i, 0) * 0.2s);
+  }
+
+  /* --- Animated Link (Underline Effect) --- */
+  .animated-link {
+    @apply relative inline-flex pb-0.5 no-underline transition-colors duration-300;
+  }
+
+  .animated-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 h-0.5 w-0 bg-current transition-[width] duration-300 ease-in-out;
+  }
+
+  .animated-link:hover::after {
+    @apply w-full;
+  }
 }
 
+/* View Transitions */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation-duration: 0.5s;
