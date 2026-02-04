@@ -1,6 +1,5 @@
 ---
-// src/pages/index.astro
-// This page exists only to redirect based on browser language.
+const base = '/Portfolio';
 ---
 
 <!doctype html>
@@ -8,31 +7,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Redirecting...</title>
+    <title>Lohan Boëglin - Portfolio</title>
+
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <link rel="icon" type="image/x-icon" href={`${base}/favicon.ico`} />
 
     <meta http-equiv="refresh" content="0;url=/Portfolio/fr/" />
 
     <script is:inline>
-      // 1. Configuration (must match your astro.config.mjs)
       const base = '/Portfolio';
       const defaultLocale = 'fr';
       const locales = ['fr', 'en'];
 
-      // 2. Detect Browser Language
-      // navigator.language returns codes like 'en-US' or 'fr-FR'
-      const browserLang = navigator.language || navigator.userLanguage;
-      const langCode = browserLang.split('-')[0]; // Take only the first part ('en' or 'fr')
+      try {
+        const browserLang = navigator.language || navigator.userLanguage;
+        const langCode = browserLang.split('-')[0];
+        const targetLocale = locales.includes(langCode) ? langCode : defaultLocale;
 
-      // 3. Determine Target Locale
-      // If the browser language is in our list, use it. Otherwise, use default.
-      const targetLocale = locales.includes(langCode) ? langCode : defaultLocale;
-
-      // 4. Redirect
-      // We use .replace() so the back button works correctly (doesn't get stuck in a loop)
-      window.location.replace(`${base}/${targetLocale}/`);
+        window.location.replace(`${base}/${targetLocale}/`);
+      } catch (e) {
+        window.location.replace(`${base}/${defaultLocale}/`);
+      }
     </script>
+
+    <style>
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #f1f1f1;
+        color: #333;
+        margin: 0;
+        gap: 20px;
+      }
+      a {
+        color: #0070f3;
+        text-decoration: underline;
+      }
+      .loader {
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+      .links {
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+    </style>
   </head>
   <body>
-    <p>Redirection en cours...</p>
+    <div class="loader">Redirection en cours... / Redirecting...</div>
+
+    <div class="links">
+      <a href="/Portfolio/fr/">Français</a> | <a href="/Portfolio/en/">English</a>
+    </div>
   </body>
 </html>
