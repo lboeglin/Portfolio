@@ -7,6 +7,9 @@ import path from 'path';
 export default defineConfig({
   site: 'https://lboeglin.github.io',
   base: '/Portfolio',
+  image: {
+    domains: ['placehold.co'],
+  },
   vite: {
     resolve: {
       alias: {
