@@ -55,6 +55,25 @@
   .animated-link:hover::after {
     @apply w-full;
   }
+  .badge-fill {
+    @apply badge badge-lg badge-outline relative overflow-hidden cursor-default transition-colors duration-300;
+    z-index: 1;
+  }
+
+  .badge-fill::before {
+    content: '';
+    @apply absolute inset-0 bg-primary -z-10 transition-transform duration-300 ease-out;
+    transform-origin: bottom;
+    transform: scaleY(0);
+  }
+
+  .badge-fill:hover::before {
+    transform: scaleY(1);
+  }
+
+  .badge-fill:hover {
+    @apply text-primary-content border-primary;
+  }
 }
 
 /* View Transitions */
