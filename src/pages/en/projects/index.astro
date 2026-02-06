@@ -77,8 +77,14 @@ const title = t('nav.projects');
   let itemsToShow = 6;
   const itemsIncrement = 6;
 
-  // Runs on initial load AND after View Transitions (language switch)
+  // Runs on initial load AND after View Transitions
   document.addEventListener('astro:page-load', () => {
+    // --- FIX: GUARD CLAUSE ---
+    // If we cannot find the projects grid, we are on a different page (like Home or Detail).
+    // Stop execution immediately to prevent "emptyState is null" errors.
+    const grid = document.getElementById('projects-grid');
+    if (!grid) return;
+
     // 1. Recover state from localStorage (default to 'all' if empty)
     currentCategory = localStorage.getItem('selectedCategory') || 'all';
     itemsToShow = 6;
@@ -126,6 +132,8 @@ const title = t('nav.projects');
     const emptyState = document.getElementById('no-projects');
     const loadMoreBtn = document.getElementById('load-more-btn');
 
+    if (!emptyState || !loadMoreBtn) return;
+
     let visibleCount = 0;
     let matchCount = 0;
 
@@ -138,8 +146,7 @@ const title = t('nav.projects');
         if (visibleCount < itemsToShow) {
           item.classList.remove('hidden');
           // Only animate if it was previously hidden
-          if (item.style.display === 'none' || item.classList.contains('hidden')) {
-            // Simple fade in
+          if (window.getComputedStyle(item).display === 'none') {
             item.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300 });
           }
           visibleCount++;
