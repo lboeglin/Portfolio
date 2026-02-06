@@ -30,6 +30,7 @@ const { Content } = await entry.render();
     {/* 1. Header Section */}
     <div class="mb-8">
       <a
+        id="back-link"
         href={`/Portfolio/${currentLang}/projects`}
         class="hover-expand mb-4 flex items-center gap-2 w-fit px-3 -ml-3 opacity-70 hover:opacity-100 transition-opacity text-lg"
       >
@@ -146,4 +147,18 @@ const { Content } = await entry.render();
       <Content />
     </div>
   </article>
+  <script>
+    document.addEventListener('astro:page-load', () => {
+      const backLink = document.getElementById('back-link');
+
+      if (backLink) {
+        backLink.addEventListener('click', (e) => {
+          if (window.history.length > 1) {
+            e.preventDefault();
+            window.history.back();
+          }
+        });
+      }
+    });
+  </script>
 </Layout>
