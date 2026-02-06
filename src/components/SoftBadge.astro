@@ -73,8 +73,12 @@ const activeStyle = colorStyles[color];
 <span
   class:list={[
     'badge h-auto py-1.5 px-3 border-0 font-semibold tracking-wide shadow-sm transition-all duration-200 select-none',
+
     activeStyle,
+
     className,
+
+    "[html[data-theme='caramellatte']_&]:text-black",
   ]}
 >
   <span class="text-xs">{name}</span>
