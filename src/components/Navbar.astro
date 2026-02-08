@@ -94,13 +94,14 @@ const switchUrl = getRelativeLocaleUrl(targetLang, slug);
 </div>
 
 <script is:inline>
+  // Define the handler globally so we can reference it to remove it later
   function handleToggleClick() {
     const element = document.documentElement;
-
     element.classList.add('theme-changing');
 
     const currentTheme = element.getAttribute('data-theme');
     const newTheme = currentTheme === 'coffee' ? 'caramellatte' : 'coffee';
+
     element.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
 
@@ -112,11 +113,16 @@ const switchUrl = getRelativeLocaleUrl(targetLang, slug);
   document.addEventListener('astro:page-load', () => {
     const themeToggle = document.getElementById('theme-toggle');
 
-    const currentTheme = localStorage.getItem('theme') || 'caramellatte';
+    const currentTheme =
+      localStorage.getItem('theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'coffee' : 'caramellatte');
+
     document.documentElement.setAttribute('data-theme', currentTheme);
 
     if (themeToggle) {
       themeToggle.checked = currentTheme === 'coffee';
+
+      themeToggle.removeEventListener('change', handleToggleClick);
       themeToggle.addEventListener('change', handleToggleClick);
     }
   });
