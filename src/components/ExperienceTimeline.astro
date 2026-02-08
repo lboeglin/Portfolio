@@ -9,9 +9,7 @@ const { experiences } = Astro.props as {
 };
 
 const currentLang = (Astro.currentLocale || defaultLang) as Lang;
-
 const base = import.meta.env.BASE_URL;
-
 const t = useTranslations(currentLang);
 
 function formatDate(dateStr?: string) {
@@ -72,9 +70,13 @@ function formatDate(dateStr?: string) {
               <div class="prose max-w-none">{exp.body}</div>
             )}
 
-            <div class="flex flex-wrap gap-2 pt-3">
-              {exp.data.stack.map((tech: string) => (
-                <SoftBadge name={tech} />
+            {/* --- BADGE SECTION WITH RIPPLE EFFECT --- */}
+            {/* Added 'stack-container' for the JS observer */}
+            <div class="stack-container flex flex-wrap gap-2 pt-3">
+              {exp.data.stack.map((tech: string, i: number) => (
+                <span class="badge-wrapper" style={`--i: ${i}`}>
+                  <SoftBadge name={tech} />
+                </span>
               ))}
             </div>
 
@@ -137,3 +139,25 @@ function formatDate(dateStr?: string) {
     }
   </ol>
 </section>
+
+<script>
+  // wrapper function to setup the observer
+  function setupObserver() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const elements = document.querySelectorAll('.stack-container');
+    elements.forEach((el) => observer.observe(el));
+  }
+
+  document.addEventListener('astro:page-load', setupObserver);
+</script>

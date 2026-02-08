@@ -38,8 +38,11 @@
   /* --- Badge Wrapper (Handles the entrance animation) --- */
   .badge-wrapper {
     @apply inline-block opacity-0;
+  }
+
+  .in-view .badge-wrapper {
     animation: fadeInUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-    animation-delay: calc(var(--i, 0) * 0.2s);
+    animation-delay: calc(var(--i, 0) * 0.15s);
   }
 
   /* --- Animated Link (Underline Effect) --- */
