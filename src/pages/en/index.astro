@@ -42,18 +42,56 @@ const sortedExperiences = experiences.sort(
         <section id="personal-projects" class="animate-in fade-in duration-700 delay-300">
           <div class="flex items-center justify-between mb-8 border-b pb-4">
             <h2 class="text-3xl font-bold flex items-center gap-3">
-              <span class="text-primary">✦</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-primary"
+              >
+                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+              </svg>
+
               {t('projects.filter.personal')}
             </h2>
-            <a href={`/Portfolio/${lang}/projects`} class="btn btn-ghost btn-sm group">
-              {t('nav.projects')}
-              <span class="group-hover:translate-x-1 transition-transform">→</span>
+            <a
+              href={`/Portfolio/${lang}/projects`}
+              class="group inline-flex items-center gap-2 px-3 py-1.5 rounded-full
+         overflow-hidden transition-all
+         hover:px-5 hover-expand justify-center"
+            >
+              <span class="text-sm font-medium whitespace-nowrap">{t('nav.projects')}</span>
+
+              {/* Arrow container */}
+              <span
+                class="flex items-center justify-center w-0 opacity-0
+           group-hover:w-5 group-hover:opacity-100
+           transition-all duration-500"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  class="h-4 w-4 text-primary"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="13 6 19 12 13 18" />
+                </svg>
+              </span>
             </a>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             {personal.map((project) => (
-              /* Reuse the big component for maximum impact */
               <div class="h-full">
                 <ProjectCard project={project} loading="lazy" showCategory={false} />
               </div>
