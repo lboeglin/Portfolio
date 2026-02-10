@@ -97,29 +97,39 @@ const switchUrl = getRelativeLocaleUrl(targetLang, slug);
 <script is:inline>
   function handleToggleClick() {
     const element = document.documentElement;
-
-    element.classList.add('theme-transition');
-
     const currentTheme = element.getAttribute('data-theme');
     const newTheme = currentTheme === 'coffee' ? 'caramellatte' : 'coffee';
 
-    element.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
+    // 1. Define the actual theme change logic
+    const updateTheme = () => {
+      element.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    };
 
-    setTimeout(() => {
-      element.classList.remove('theme-transition');
-    }, 400);
+    // 2. Use View Transitions API if available (Chromium/Arc/Edge)
+    // This creates a smooth cross-fade snapshot without forcing CSS transitions on DOM elements
+    if (document.startViewTransition) {
+      document.startViewTransition(updateTheme);
+    } else {
+      // 3. Fallback for Firefox (CSS Class method)
+      element.classList.add('theme-transition');
+      updateTheme();
+      setTimeout(() => {
+        element.classList.remove('theme-transition');
+      }, 400);
+    }
   }
 
   document.addEventListener('astro:page-load', () => {
     const themeToggle = document.getElementById('theme-toggle');
     const element = document.documentElement;
-
     const currentTheme = element.getAttribute('data-theme');
 
     if (themeToggle) {
+      // Sync checkbox state
       themeToggle.checked = currentTheme === 'coffee';
 
+      // Clean up previous listener to avoid duplicates on navigation
       themeToggle.removeEventListener('change', handleToggleClick);
       themeToggle.addEventListener('change', handleToggleClick);
     }

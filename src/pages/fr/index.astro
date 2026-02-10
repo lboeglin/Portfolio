@@ -40,7 +40,8 @@ const sortedExperiences = experiences.sort(
     {/* 2. PERSONAL PROJECTS (Visual Showcase) */}
     {
       personal.length > 0 && (
-        <section id="personal-projects" class="animate-in fade-in duration-700 delay-300">
+        /* REMOVED: animate-in fade-in duration-700 delay-300 (Causes blinking) */
+        <section id="personal-projects">
           <div class="flex items-center justify-between mb-8 border-b border-base-300 pb-4">
             <h2 class="text-3xl font-bold flex items-center gap-3">
               <svg
@@ -99,7 +100,8 @@ const sortedExperiences = experiences.sort(
     {/* 3. ACADEMIC PROJECTS (Compact / Information Dense) */}
     {
       academic.length > 0 && (
-        <section id="academic-projects" class="animate-in fade-in duration-700 delay-500">
+        /* REMOVED: animate-in fade-in duration-700 delay-500 (Causes blinking) */
+        <section id="academic-projects">
           <h2 class="text-2xl font-bold mb-8 border-b border-base-300 pb-4 flex items-center gap-3 opacity-90">
             <svg
               xmlns="http://www.w3.org/2000/svg"

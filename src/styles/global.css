@@ -206,10 +206,10 @@
   }
 }
 
-/* View Transitions */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation-duration: 0.5s;
+  mix-blend-mode: normal;
 }
 
 html.theme-changing,
@@ -224,7 +224,8 @@ html.theme-transition,
 html.theme-transition *,
 html.theme-transition *:before,
 html.theme-transition *:after {
-  transition-property: background-color, border-color, color, fill, stroke, box-shadow !important;
+  transition-property:
+    background-color, border-color, color, fill, stroke, box-shadow, transform, opacity !important;
   transition-duration: 0.4s !important;
   transition-timing-function: ease-out !important;
   transition-delay: 0s !important;
