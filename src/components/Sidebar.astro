@@ -9,7 +9,6 @@ const currentLang = (Astro.currentLocale || defaultLang) as Lang;
 const t = useTranslations(currentLang);
 
 const name = 'Lohan Boëglin';
-const email = 'lohan.boeglin@gmail.com';
 
 function localizedUrl(path: string) {
   return getRelativeLocaleUrl(currentLang, path);
@@ -116,8 +115,8 @@ function localizedUrl(path: string) {
           </svg>
         </a>
 
-        <div class="tooltip tooltip-top" data-tip={email}>
-          <a href={`mailto:${email}`} aria-label="Email" class="hover-expand">
+        <div class="tooltip tooltip-top" id="email-tooltip" data-tip="Contact">
+          <a href="#" aria-label="Email" class="hover-expand" id="email-link">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -138,3 +137,25 @@ function localizedUrl(path: string) {
     </div>
   </nav>
 </aside>
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    const user = 'lohan.boeglin';
+    const domain = 'gmail.com';
+    const address = `${user}@${domain}`;
+
+    const sidebarLink = document.getElementById('email-link');
+    const sidebarTooltip = document.getElementById('email-tooltip');
+
+    if (sidebarLink) {
+      sidebarLink.href = `mailto:${address}`;
+
+      sidebarLink.addEventListener('click', (e) => {
+        window.location.href = `mailto:${address}`;
+      });
+    }
+
+    if (sidebarTooltip) {
+      sidebarTooltip.setAttribute('data-tip', address);
+    }
+  });
+</script>

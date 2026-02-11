@@ -3,9 +3,7 @@ import { useTranslations } from '../i18n/utils';
 import { type Lang, defaultLang } from '../i18n/ui';
 
 const today = new Date();
-
 const currentLang = (Astro.currentLocale || defaultLang) as Lang;
-
 const t = useTranslations(currentLang);
 ---
 
@@ -16,7 +14,8 @@ const t = useTranslations(currentLang);
 >
   <div>
     <p class="font-bold text-lg">
-      <a href="mailto:lohan.boeglin@gmail.com" class="link link-hover"> lohan.boeglin@gmail.com </a>
+      {/* FIX: Removed direct email text and href */}
+      <a href="#" id="footer-email" class="link link-hover">Contact Me</a>
       <br />
       <span class="font-normal opacity-70 text-sm">{t('footer.role')}</span>
     </p>
@@ -25,3 +24,18 @@ const t = useTranslations(currentLang);
     </p>
   </div>
 </footer>
+
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    const user = 'lohan.boeglin';
+    const domain = 'gmail.com';
+    const address = `${user}@${domain}`;
+
+    const footerLink = document.getElementById('footer-email');
+
+    if (footerLink) {
+      footerLink.href = `mailto:${address}`;
+      footerLink.textContent = address;
+    }
+  });
+</script>
