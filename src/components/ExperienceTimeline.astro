@@ -70,8 +70,6 @@ function formatDate(dateStr?: string) {
               <div class="prose max-w-none">{exp.body}</div>
             )}
 
-            {/* --- BADGE SECTION WITH RIPPLE EFFECT --- */}
-            {/* Added 'stack-container' for the JS observer */}
             <div class="stack-container flex flex-wrap gap-2 pt-3">
               {exp.data.stack.map((tech: string, i: number) => (
                 <span class="badge-wrapper" style={`--i: ${i}`}>
@@ -141,7 +139,6 @@ function formatDate(dateStr?: string) {
 </section>
 
 <script>
-  // wrapper function to setup the observer
   function setupObserver() {
     const observer = new IntersectionObserver(
       (entries) => {

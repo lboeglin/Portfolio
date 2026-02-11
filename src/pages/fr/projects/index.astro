@@ -72,38 +72,28 @@ const title = t('nav.projects');
 </Layout>
 
 <script is:inline>
-  // Configuration
   let currentCategory = 'all';
   let itemsToShow = 6;
   const itemsIncrement = 6;
 
-  // Runs on initial load AND after View Transitions
   document.addEventListener('astro:page-load', () => {
-    // --- FIX: GUARD CLAUSE ---
-    // If we cannot find the projects grid, we are on a different page (like Home or Detail).
-    // Stop execution immediately to prevent "emptyState is null" errors.
     const grid = document.getElementById('projects-grid');
     if (!grid) return;
 
-    // 1. Recover state from localStorage (default to 'all' if empty)
     currentCategory = localStorage.getItem('selectedCategory') || 'all';
     itemsToShow = 6;
 
-    // 2. Update the UI Tabs to match the recovered category
     updateActiveTab(currentCategory);
 
-    // 3. Render
     renderProjects();
   });
 
   function updateActiveTab(category) {
-    // Reset all tabs
     document.querySelectorAll('[role="tab"]').forEach((el) => {
       el.classList.remove('tab-active', 'bg-primary', 'text-primary-content');
       el.removeAttribute('data-active');
     });
 
-    // Find the correct tab using the data attribute and activate it
     const activeBtn = document.querySelector(`[data-tab="${category}"]`);
     if (activeBtn) {
       activeBtn.classList.add('tab-active', 'bg-primary', 'text-primary-content');
@@ -112,7 +102,6 @@ const title = t('nav.projects');
   }
 
   function setCategory(category, btn) {
-    // Save to storage
     localStorage.setItem('selectedCategory', category);
 
     currentCategory = category;

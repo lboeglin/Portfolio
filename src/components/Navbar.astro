@@ -106,12 +106,11 @@ const switchUrl = getRelativeLocaleUrl(targetLang, slug);
       localStorage.setItem('theme', newTheme);
     };
 
-    // 2. Use View Transitions API if available (Chromium/Arc/Edge)
-    // This creates a smooth cross-fade snapshot without forcing CSS transitions on DOM elements
+    // 2. Use View Transitions API if available
     if (document.startViewTransition) {
       document.startViewTransition(updateTheme);
     } else {
-      // 3. Fallback for Firefox (CSS Class method)
+      // 3. Fallback for Firefox
       element.classList.add('theme-transition');
       updateTheme();
       setTimeout(() => {
@@ -129,7 +128,6 @@ const switchUrl = getRelativeLocaleUrl(targetLang, slug);
       // Sync checkbox state
       themeToggle.checked = currentTheme === 'coffee';
 
-      // Clean up previous listener to avoid duplicates on navigation
       themeToggle.removeEventListener('change', handleToggleClick);
       themeToggle.addEventListener('change', handleToggleClick);
     }
