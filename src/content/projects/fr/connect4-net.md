@@ -1,5 +1,5 @@
 ---
-title: 'Puissance 4 en Réseau (Go)'
+title: 'Puissance 4 en Réseau'
 description: "Implémentation du netcode d'un jeu multijoueur en Go : architecture Client-Serveur, protocole binaire TCP et gestion de la concurrence via Goroutines."
 image: '../../../assets/projets/connect4-net-arch.png'
 publishDate: 2024-01-15
