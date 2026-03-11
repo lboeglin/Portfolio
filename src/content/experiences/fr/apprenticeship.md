@@ -12,6 +12,8 @@ stack:
   - .NET
   - Entity Framework
   - Microsoft SQL
+  - Redis
+  - RabbitMQ
   - SCRUM
 highlights:
   - Développement d’applications web fullstack avec Angular et .NET

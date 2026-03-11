@@ -12,6 +12,8 @@ stack:
   - .NET
   - Entity Framework
   - Microsoft SQL
+  - Redis
+  - RabbitMQ
   - SCRUM
 highlights:
   - Developing fullstack web applications with Angular and .NET
@@ -20,4 +22,4 @@ highlights:
   - Collaborating with senior developers on feature design and implementation
 ---
 
-This apprenticeship provides hands-on experience in fullstack development, database management, and agile software engineering in a professional environment.
+This apprenticeship provides hands-on experience in fullstack development, distributed architecture, and agile software engineering in a professional environment.
