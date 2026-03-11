@@ -1,7 +1,7 @@
 ---
 title: 'Portfolio Personnel V2'
 description: "Un site web moderne, rapide et accessible conçu avec Astro, TailwindCSS et DaisyUI pour présenter mon parcours d'ingénieur logiciel."
-publishDate: '2024-02-15'
+publishDate: '2026-02'
 tags: ['Astro', 'TypeScript', 'TailwindCSS', 'DaisyUI']
 category: 'personal'
 github: '[https://github.com/lboeglin/portfolio](https://github.com/lboeglin/portfolio)'

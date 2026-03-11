@@ -1,7 +1,7 @@
 ---
 title: "Automatisation d'Infrastructure Réseau Linux"
 description: "Transformation d'un projet réseau manuel en solution Infrastructure as Code (IaC). Orchestration par scripts Bash idempotents pour le déploiement de VLANs, Routage, NAT et Services."
-publishDate: 2024-06-15
+publishDate: 2024-04
 tags: ['Linux', 'Bash', 'Debian', 'Réseaux', 'Wireshark', 'Automatisation', 'Sécurité']
 category: 'academic'
 github: 'https://github.com/lboeglin/linux-network-infrastructure'

@@ -2,7 +2,7 @@
 title: 'Amazon Reviews NLP Analysis'
 description: 'A complete Data Science pipeline: NLP with Spacy, classification (KNN, Random Forest), and linear regression to predict customer satisfaction.'
 image: '../../../assets/projets/amazon-nlp-viz.png'
-publishDate: 2025-01-20
+publishDate: 2026-01
 tags: ['python', 'scikit-learn', 'nlp', 'spacy', 'pandas']
 category: 'academic'
 teamSize: 3

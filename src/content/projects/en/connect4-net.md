@@ -2,7 +2,7 @@
 title: 'Networked Connect 4'
 description: 'Implementation of multiplayer netcode in Go: Client-Server architecture, custom binary TCP protocol, and concurrency management via Goroutines.'
 image: '../../../assets/projets/connect4-net-arch.png'
-publishDate: 2024-01-15
+publishDate: 2024-12
 tags: ['Go', 'Concurrency', 'TCP', 'Network Programming', 'Game Dev']
 category: 'academic'
 teamSize: 2

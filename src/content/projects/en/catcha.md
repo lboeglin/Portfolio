@@ -1,7 +1,7 @@
 ---
 title: 'Catcha: Distributed Card Platform'
 description: 'A scalable, containerized trading card ecosystem built with JavaScript, Astro, React, and a Node.js Microservices architecture.'
-publishDate: 2024-04-10
+publishDate: 2025-04
 tags: ['JavaScript', 'Astro', 'React', 'Node.js', 'Express', 'MongoDB', 'Microservices']
 category: 'academic'
 github: 'https://github.com/lboeglin/microservices-card-platform'

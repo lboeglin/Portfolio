@@ -1,7 +1,7 @@
 ---
 title: 'Linux Network Infrastructure Automation'
 description: 'Transformation of a manual networking assignment into an automated Infrastructure as Code (IaC) project. Features idempotent Bash scripting for VLANs, Routing, NAT, and Service deployment.'
-publishDate: 2024-06-15
+publishDate: 2024-04
 tags: ['Linux', 'Bash', 'Debian', 'Networking', 'Wireshark', 'Automation', 'Security']
 category: 'academic'
 github: 'https://github.com/lboeglin/linux-network-infrastructure'

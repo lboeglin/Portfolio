@@ -1,7 +1,7 @@
 ---
 title: 'Catcha : Plateforme Microservices'
 description: 'Écosystème de cartes à collectionner conteneurisé, construit avec JavaScript, Astro, React et une architecture Microservices Node.js.'
-publishDate: 2024-04-10
+publishDate: 2025-04
 tags: ['JavaScript', 'Astro', 'React', 'Node.js', 'Express', 'MongoDB', 'Microservices']
 category: 'academic'
 github: 'https://github.com/lboeglin/microservices-card-platform'

@@ -2,7 +2,7 @@
 title: 'Microservices de Gestion de Salles'
 image: '../../../assets/projets/room-management-architecture.png'
 description: 'Une architecture distribuée composée de trois services Spring Boot en Kotlin implémentant un pattern BFF pour gérer les utilisateurs et les réservations de salles.'
-publishDate: 2025-01-25
+publishDate: 2026-01
 tags: ['Kotlin', 'Spring Boot', 'Microservices', 'REST API', 'H2', 'Bruno']
 category: 'academic'
 teamSize: 2

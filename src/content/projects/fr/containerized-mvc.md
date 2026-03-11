@@ -1,7 +1,7 @@
 ---
 title: 'Conteneurisation & Migration MVC'
 description: "Migration d'une application PHP monolithique vers une architecture Cloud-Native sous Podman. Inclut une migration complète MySQL vers PostgreSQL et l'intégration d'un registre OCI."
-publishDate: 2024-04-10
+publishDate: 2025-04
 tags: ['podman', 'postgresql', 'php', 'apache', 'linux', 'bash', 'docker']
 category: 'academic'
 github: 'https://github.com/votreusername/podman-mvc-migration'

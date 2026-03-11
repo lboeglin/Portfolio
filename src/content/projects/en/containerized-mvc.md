@@ -1,7 +1,7 @@
 ---
 title: 'Legacy App Containerization & Migration'
 description: 'Migration of a monolithic PHP MVC application to a cloud-native Podman architecture. Features a complete MySQL-to-PostgreSQL database migration and OCI registry integration.'
-publishDate: 2024-04-10
+publishDate: 2025-04
 tags: ['podman', 'postgresql', 'php', 'apache', 'linux', 'bash', 'docker']
 category: 'academic'
 github: 'https://github.com/yourusername/podman-mvc-migration'

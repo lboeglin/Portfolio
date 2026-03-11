@@ -2,7 +2,7 @@
 title: 'Analyse de Sentiments - Amazon Reviews'
 description: 'Pipeline de Data Science complet : NLP avec Spacy, classification (KNN, Random Forest) et régression linéaire pour prédire la satisfaction client.'
 image: '../../../assets/projets/amazon-nlp-viz.png'
-publishDate: 2025-01-20
+publishDate: 2026-01
 tags: ['python', 'scikit-learn', 'nlp', 'spacy', 'pandas']
 category: 'academic'
 teamSize: 3

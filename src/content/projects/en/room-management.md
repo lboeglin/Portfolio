@@ -2,7 +2,7 @@
 title: 'Room Management Microservices'
 image: '../../../assets/projets/room-management-architecture.png'
 description: 'A distributed architecture composed of three Kotlin Spring Boot services implementing a BFF pattern for managing users and room reservations.'
-publishDate: 2025-01-25
+publishDate: 2026-01
 tags: ['Kotlin', 'Spring Boot', 'Microservices', 'REST API', 'H2', 'Bruno']
 category: 'academic'
 teamSize: 2

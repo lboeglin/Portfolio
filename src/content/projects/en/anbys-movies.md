@@ -2,7 +2,7 @@
 title: "Anby's Movies"
 description: 'A native Android movie discovery app built with Kotlin and Material Design 3, following the MVVM architecture and consuming the TMDb API.'
 image: '../../../assets/projets/anbys-movies-mockup.png'
-publishDate: 2024-06-20
+publishDate: 2025-04
 tags: ['Kotlin', 'Android', 'MVVM', 'REST API', 'Material Design', 'Gradle', 'Ktor']
 category: 'academic'
 teamSize: 3
