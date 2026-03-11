@@ -18,8 +18,14 @@ const sortedProjects = allProjects.sort(
 );
 
 // 2. Filter & Limit
-// Personal: Show top 2 (Big Cards)
-const personal = sortedProjects.filter((p) => p.data.category === 'personal').slice(0, 2);
+const personal = sortedProjects
+  .filter((p) => p.data.category === 'personal')
+  .sort((a, b) => {
+    if (a.data.featured && !b.data.featured) return -1;
+    if (!a.data.featured && b.data.featured) return 1;
+    return 0;
+  })
+  .slice(0, 2);
 
 // Academic: Show top 4 (Small Cards)
 const academic = sortedProjects.filter((p) => p.data.category === 'academic').slice(0, 4);
